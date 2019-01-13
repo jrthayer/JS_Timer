@@ -20,10 +20,15 @@
             <button id="tmrSubHr">-</button>
             <button id="tmrSubMin">-</button>
             <button id="tmrSubSec">-</button>
-            <button>Start/Stop</button>
-            <button>Reset</button>
+            <div id="tmrOptions">
+                <button id="tmrState">Start/Stop</button>
+                <button id="tmrReset">Reset</button>
+            </div>
+            <button id="tmrAlarmOff" class="hide">Turn Off</button>
+            <audio id="tmrNoise" src="./assets/Annoying_Alarm_Clock.mp3" type="audio/mp3" loop></audio>
         </div>
 
         <script type="text/javascript" src="timer.js"></script>
+
     </body>
 </html>
