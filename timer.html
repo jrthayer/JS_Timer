@@ -6,26 +6,24 @@
     </head>
 
     <body>
-        <div>
+        <div id="timer">
             <div id="tmrAddOptions">
-                <button id="tmrAddHr">+</button>
-                <button id="tmrAddMin">+</button>
-                <button id="tmrAddSec">+</button>
+                <button id="tmrAddHr" class="tmrAddBtn">+</button>
+                <button id="tmrAddMin" class="tmrAddBtn tmrMiddleBtn">+</button>
+                <button id="tmrAddSec" class="tmrAddBtn">+</button>
             </div>
-            <div>
-                <div id="tmrHrs">00</div>
-                <div>:</div>
-                <div id="tmrMins">00</div>
-                <div>:</div>
-                <div id="tmrSecs">00</div>
-            </div>
+            <div id="tmrHrs" class="tmrDisplay tmrNumbers">00</div>
+            <div class="tmrDisplay tmrColon">:</div>
+            <div id="tmrMins" class="tmrDisplay tmrNumbers">00</div>
+            <div class="tmrDisplay tmrColon">:</div>
+            <div id="tmrSecs" class="tmrDisplay tmrNumbers">00</div>
             <div id="tmrSubOptions">
-                <button id="tmrSubHr">-</button>
-                <button id="tmrSubMin">-</button>
-                <button id="tmrSubSec">-</button>
+                <button id="tmrSubHr" class="tmrSubBtn">-</button>
+                <button id="tmrSubMin" class="tmrSubBtn tmrMiddleBtn">-</button>
+                <button id="tmrSubSec" class="tmrSubBtn">-</button>
             </div>
             <div id="tmrOptions">
-                <button id="tmrState">Start/Stop</button>
+                <button id="tmrState">Start</button>
                 <button id="tmrReset">Reset</button>
             </div>
             <button id="tmrAlarmOff" class="remove">Turn Off</button>
@@ -33,6 +31,5 @@
         </div>
 
         <script type="text/javascript" src="timer.js"></script>
-
     </body>
 </html>

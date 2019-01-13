@@ -17,7 +17,7 @@ function timer()
 {
     if(tmrState){
         var sec = Number(tmrSecDisplay.textContent) - 1;
-        if(sec >= 0){
+        if(sec > 0){
             tmrSecDisplay.textContent = tmrSingleConvert(sec);
         }
         else{
@@ -80,10 +80,12 @@ function tmrToggle(){
     if(tmrState){
         tmrAddOptions.classList.add("hide");
         tmrSubOptions.classList.add("hide");
+        tmrStartStopBtn.textContent = "Stop";
     }
     else{
         tmrAddOptions.classList.remove("hide");
         tmrSubOptions.classList.remove("hide");
+        tmrStartStopBtn.textContent = "Start";
     }
     timer();
 
