@@ -7,9 +7,11 @@
 
     <body>
         <div>
-            <button id="tmrAddHr">+</button>
-            <button id="tmrAddMin">+</button>
-            <button id="tmrAddSec">+</button>
+            <div id="tmrAddOptions">
+                <button id="tmrAddHr">+</button>
+                <button id="tmrAddMin">+</button>
+                <button id="tmrAddSec">+</button>
+            </div>
             <div>
                 <div id="tmrHrs">00</div>
                 <div>:</div>
@@ -17,14 +19,16 @@
                 <div>:</div>
                 <div id="tmrSecs">00</div>
             </div>
-            <button id="tmrSubHr">-</button>
-            <button id="tmrSubMin">-</button>
-            <button id="tmrSubSec">-</button>
+            <div id="tmrSubOptions">
+                <button id="tmrSubHr">-</button>
+                <button id="tmrSubMin">-</button>
+                <button id="tmrSubSec">-</button>
+            </div>
             <div id="tmrOptions">
                 <button id="tmrState">Start/Stop</button>
                 <button id="tmrReset">Reset</button>
             </div>
-            <button id="tmrAlarmOff" class="hide">Turn Off</button>
+            <button id="tmrAlarmOff" class="remove">Turn Off</button>
             <audio id="tmrNoise" src="./assets/Annoying_Alarm_Clock.mp3" type="audio/mp3" loop></audio>
         </div>
 

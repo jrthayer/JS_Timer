@@ -6,6 +6,8 @@ var tmrStartStopBtn = document.getElementById("tmrState");
 var tmrResetBtn = document.getElementById("tmrReset");
 var tmrOptions = document.getElementById("tmrOptions");
 var tmrAlarmOffBtn = document.getElementById("tmrAlarmOff");
+var tmrAddOptions = document.getElementById("tmrAddOptions");
+var tmrSubOptions = document.getElementById("tmrSubOptions");
 
 var adjustRepeat = null;
 var tmrLoop;
@@ -22,7 +24,21 @@ function timer()
             var min = Number(tmrMinDisplay.textContent);
             var hr =  Number(tmrHrDisplay.textContent);
             if(min === 0 && hr === 0){
+                tmrSecDisplay.textContent = "00";
                 tmrFinished();
+            }
+            else{
+                if(min != 0){
+                    min -= 1;
+                    tmrMinDisplay.textContent = tmrSingleConvert(min);
+                    tmrSecDisplay.textContent = 59;
+                }
+                else{
+                    hr -= 1;
+                    tmrHrDisplay.textContent = tmrSingleConvert(hr);
+                    tmrMinDisplay.textContent = 59;
+                    tmrSecDisplay.textContent = 59;
+                }
             }
         }
         tmrLoop = setTimeout(timer, 1000);
@@ -40,29 +56,37 @@ function tmrSingleConvert(number){
 }
 
 function tmrFinished(){
-    alert("Timer Has Finished");
-    tmrToggle();
     tmrReset();
     tmrAudio.play();
-    tmrAlarmOff.classList.remove("hide");
+    tmrAlarmOff.classList.remove("remove");
     tmrAlarmOff.classList.add("show");
     tmrOptions.classList.remove("show");
-    tmrOptions.classList.add("hide");
+    tmrOptions.classList.add("remove");
 }
 
 function tmrAlarmReset(){
     tmrAudio.pause();
     tmrAudio.currentTime = 0;
+    tmrToggle();
 
     tmrAlarmOff.classList.remove("show");
-    tmrAlarmOff.classList.add("hide");
-    tmrOptions.classList.remove("hide");
+    tmrAlarmOff.classList.add("remove");
+    tmrOptions.classList.remove("remove");
     tmrOptions.classList.add("show");
 }
 
 function tmrToggle(){
     tmrState = !tmrState;
+    if(tmrState){
+        tmrAddOptions.classList.add("hide");
+        tmrSubOptions.classList.add("hide");
+    }
+    else{
+        tmrAddOptions.classList.remove("hide");
+        tmrSubOptions.classList.remove("hide");
+    }
     timer();
+
 }
 
 function clickOrHold(funcName, display, arg1){

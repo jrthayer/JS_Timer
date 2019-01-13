@@ -1,5 +1,9 @@
-.hide{
+.remove{
     display: none;
+}
+
+.hide{
+    visibility: hidden;
 }
 
 .show{
