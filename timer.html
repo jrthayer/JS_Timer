@@ -8,9 +8,9 @@
     <body>
         <div id="timer">
             <div id="tmrAddOptions">
-                <button id="tmrAddHr" class="tmrAddBtn">+</button>
-                <button id="tmrAddMin" class="tmrAddBtn tmrMiddleBtn">+</button>
-                <button id="tmrAddSec" class="tmrAddBtn">+</button>
+                <button id="tmrAddHr" class="tmrAddBtn tmrBtn">+</button>
+                <button id="tmrAddMin" class="tmrAddBtn tmrMiddleBtn tmrBtn">+</button>
+                <button id="tmrAddSec" class="tmrAddBtn tmrBtn">+</button>
             </div>
             <div id="tmrHrs" class="tmrDisplay tmrNumbers">00</div>
             <div class="tmrDisplay tmrColon">:</div>
@@ -18,15 +18,15 @@
             <div class="tmrDisplay tmrColon">:</div>
             <div id="tmrSecs" class="tmrDisplay tmrNumbers">00</div>
             <div id="tmrSubOptions">
-                <button id="tmrSubHr" class="tmrSubBtn">-</button>
-                <button id="tmrSubMin" class="tmrSubBtn tmrMiddleBtn">-</button>
-                <button id="tmrSubSec" class="tmrSubBtn">-</button>
+                <button id="tmrSubHr" class="tmrSubBtn tmrBtn">-</button>
+                <button id="tmrSubMin" class="tmrSubBtn tmrMiddleBtn tmrBtn">-</button>
+                <button id="tmrSubSec" class="tmrSubBtn tmrBtn">-</button>
             </div>
             <div id="tmrOptions">
-                <button id="tmrState">Start</button>
-                <button id="tmrReset">Reset</button>
+                <button id="tmrState" class="tmrBtn">Start</button>
+                <button id="tmrReset" class="tmrBtn">Reset</button>
             </div>
-            <button id="tmrAlarmOff" class="remove">Turn Off</button>
+            <button id="tmrAlarmOff" class="remove tmrBtn">Turn Off</button>
             <audio id="tmrNoise" src="./assets/Annoying_Alarm_Clock.mp3" type="audio/mp3" loop></audio>
         </div>
 

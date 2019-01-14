@@ -17,17 +17,28 @@ function timer()
 {
     if(tmrState){
         var sec = Number(tmrSecDisplay.textContent) - 1;
+
         if(sec > 0){
             tmrSecDisplay.textContent = tmrSingleConvert(sec);
+        }
+        else if(sec === 0){
+            tmrSecDisplay.textContent = "00";
+
+            var min = Number(tmrMinDisplay.textContent);
+            var hr =  Number(tmrHrDisplay.textContent);
+
+            if(min === 0 && hr === 0) tmrFinished();
         }
         else{
             var min = Number(tmrMinDisplay.textContent);
             var hr =  Number(tmrHrDisplay.textContent);
+            
+            //need for starting state of 00:00:00
             if(min === 0 && hr === 0){
-                tmrSecDisplay.textContent = "00";
                 tmrFinished();
             }
-            else{
+            else
+            {
                 if(min != 0){
                     min -= 1;
                     tmrMinDisplay.textContent = tmrSingleConvert(min);
@@ -40,6 +51,7 @@ function timer()
                     tmrSecDisplay.textContent = 59;
                 }
             }
+            
         }
         tmrLoop = setTimeout(timer, 1000);
     }
@@ -56,7 +68,8 @@ function tmrSingleConvert(number){
 }
 
 function tmrFinished(){
-    tmrReset();
+    tmrValueReset();
+    tmrStateToggle();
     tmrAudio.play();
     tmrAlarmOff.classList.remove("remove");
     tmrAlarmOff.classList.add("show");
@@ -67,7 +80,7 @@ function tmrFinished(){
 function tmrAlarmReset(){
     tmrAudio.pause();
     tmrAudio.currentTime = 0;
-    tmrToggle();
+    tmrSubAddToggle();
 
     tmrAlarmOff.classList.remove("show");
     tmrAlarmOff.classList.add("remove");
@@ -76,7 +89,16 @@ function tmrAlarmReset(){
 }
 
 function tmrToggle(){
+    tmrStateToggle();
+    tmrSubAddToggle();
+    timer();
+}
+
+function tmrStateToggle(){
     tmrState = !tmrState;
+}
+
+function tmrSubAddToggle(){
     if(tmrState){
         tmrAddOptions.classList.add("hide");
         tmrSubOptions.classList.add("hide");
@@ -87,8 +109,6 @@ function tmrToggle(){
         tmrSubOptions.classList.remove("hide");
         tmrStartStopBtn.textContent = "Start";
     }
-    timer();
-
 }
 
 function clickOrHold(funcName, display, arg1){
@@ -129,7 +149,7 @@ function tmrSub(display, max){
     display.textContent = value;
 }
 
-function tmrReset(){
+function tmrValueReset(){
     if(!tmrState){
         tmrHrDisplay.textContent = "00";
         tmrMinDisplay.textContent = "00";
@@ -145,6 +165,6 @@ document.getElementById("tmrAddSec").addEventListener("mousedown", function(){cl
 document.getElementById("tmrSubSec").addEventListener("mousedown", function(){clickOrHold(tmrSub, tmrSecDisplay, 59)});
 
 document.getElementById("tmrState").addEventListener("click", tmrToggle);
-tmrResetBtn.addEventListener("click", tmrReset);
+tmrResetBtn.addEventListener("click", tmrValueReset);
 tmrAlarmOffBtn.addEventListener("click", tmrAlarmReset);
 document.addEventListener("mouseup", function(){release();});
