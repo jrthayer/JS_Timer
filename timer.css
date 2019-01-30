@@ -27,7 +27,7 @@ html, body {
 }
 
 /*timer css styling*/
-#timer{
+.timer{
     min-width: calc(var(--tmrFontSize)*7);
     min-height: calc(var(--tmrFontSize)*4);
     font-family: Orbitron;
@@ -40,16 +40,28 @@ html, body {
     transform: translate(-50%, -50%);
 }
 
-#tmrHrs{
+.tmrHrs{
     float: left;
 }
 
-#tmrDisplayCtnr{
+.tmrDisplayCtnr{
     width: 100%;
     height: calc(var(--tmrFontSize)/2);
 }
 
-#tmrState, #tmrReset{
+.tmrBtn{
+    border: none;
+    background: var(--tmrTextColor);
+    color: var(--tmrBackground);
+    text-align: center;
+    font-size: calc(var(--tmrFontSize)/2);
+    outline:0;
+    width: 21%;
+    margin: 0% 3%;
+    float: left;  
+}
+
+.tmrState, .tmrReset{
     font-family: Orbitron;
     width: 47%;
     margin: 0% 1.5%;
@@ -57,7 +69,7 @@ html, body {
     margin-top: calc(var(--tmrFontSize));
 }
 
-#tmrAlarmOff{
+.tmrAlarmOff{
     font-family: Orbitron;
     width: 100%;
     border-radius: 5px;
@@ -73,18 +85,6 @@ html, body {
 .tmrAddBtn{
     border-top-left-radius: 100%;
     border-top-right-radius: 100%;
-}
-
-.tmrBtn{
-    border: none;
-    background: var(--tmrTextColor);
-    color: var(--tmrBackground);
-    text-align: center;
-    font-size: calc(var(--tmrFontSize)/2);
-    outline:0;
-    width: 21%;
-    margin: 0% 3%;
-    float: left;  
 }
 
 .tmrMiddleBtn{

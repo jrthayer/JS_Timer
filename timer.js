@@ -1,16 +1,16 @@
 class Timer{
     constructor(timer){
-        this.tmrHrDisplay = document.getElementById("tmrHrs");
-        this.tmrMinDisplay = document.getElementById("tmrMins");
-        this.tmrSecDisplay = document.getElementById("tmrSecs");
-        this.tmrAudio = document.getElementById("tmrNoise");
-        this.tmrStartStopBtn = document.getElementById("tmrState");
-        this.tmrResetBtn = document.getElementById("tmrReset");
-        this.tmrOptions = document.getElementById("tmrOptions");
-        this.tmrAlarmOffBtn = document.getElementById("tmrAlarmOff");
-        this.tmrAddOptions = document.getElementById("tmrAddOptions");
-        this.tmrSubOptions = document.getElementById("tmrSubOptions");
-
+        this.tmrHrDisplay = timer.getElementsByClassName("tmrHrs")[0];
+        this.tmrMinDisplay = timer.getElementsByClassName("tmrMins")[0];
+        this.tmrSecDisplay = timer.getElementsByClassName("tmrSecs")[0];
+        this.tmrAudio = timer.getElementsByClassName("tmrNoise")[0];
+        this.tmrStartStopBtn = timer.getElementsByClassName("tmrState")[0]
+        this.tmrResetBtn = timer.getElementsByClassName("tmrReset")[0];
+        this.tmrOptions = timer.getElementsByClassName("tmrOptions")[0];
+        this.tmrAlarmOffBtn = timer.getElementsByClassName("tmrAlarmOff")[0];
+        this.tmrAddOptions = timer.getElementsByClassName("tmrAddOptions")[0];
+        this.tmrSubOptions = timer.getElementsByClassName("tmrSubOptions")[0];
+        
         this.adjustRepeat = null;
         this.tmrLoop;
         this.tmrRunning = false;
@@ -19,12 +19,12 @@ class Timer{
         this.tmrTimes = [0,0,0,0];
 
         //event listeners
-        document.getElementById("tmrAddHr").addEventListener("mousedown", () => this.clickOrHold(this.tmrAdd, this.tmrHrDisplay, 24));
-        document.getElementById("tmrSubHr").addEventListener("mousedown", () => this.clickOrHold(this.tmrSub, this.tmrHrDisplay, 24));
-        document.getElementById("tmrAddMin").addEventListener("mousedown", () => this.clickOrHold(this.tmrAdd, this.tmrMinDisplay, 59));
-        document.getElementById("tmrSubMin").addEventListener("mousedown", () => this.clickOrHold(this.tmrSub, this.tmrMinDisplay, 59));
-        document.getElementById("tmrAddSec").addEventListener("mousedown", () => this.clickOrHold(this.tmrAdd, this.tmrSecDisplay, 59));
-        document.getElementById("tmrSubSec").addEventListener("mousedown", () => this.clickOrHold(this.tmrSub, this.tmrSecDisplay, 59));
+        timer.getElementsByClassName("tmrAddHr")[0].addEventListener("mousedown", () => this.clickOrHold(this.tmrAdd, this.tmrHrDisplay, 24));
+        timer.getElementsByClassName("tmrSubHr")[0].addEventListener("mousedown", () => this.clickOrHold(this.tmrSub, this.tmrHrDisplay, 24));
+        timer.getElementsByClassName("tmrAddMin")[0].addEventListener("mousedown", () => this.clickOrHold(this.tmrAdd, this.tmrMinDisplay, 59));
+        timer.getElementsByClassName("tmrSubMin")[0].addEventListener("mousedown", () => this.clickOrHold(this.tmrSub, this.tmrMinDisplay, 59));
+        timer.getElementsByClassName("tmrAddSec")[0].addEventListener("mousedown", () => this.clickOrHold(this.tmrAdd, this.tmrSecDisplay, 59));
+        timer.getElementsByClassName("tmrSubSec")[0].addEventListener("mousedown", () => this.clickOrHold(this.tmrSub, this.tmrSecDisplay, 59));
         this.tmrStartStopBtn.addEventListener("click", () => this.tmrStartOrStop());
         this.tmrResetBtn.addEventListener("click", () => this.tmrReset());
         this.tmrAlarmOffBtn.addEventListener("click", () => this.tmrAlarmReset());
@@ -115,10 +115,10 @@ class Timer{
         this.tmrAudio.currentTime = 0;
 
         //remove off btn and add timer btns
-        tmrAlarmOff.classList.remove("show");
-        tmrAlarmOff.classList.add("remove");
-        tmrOptions.classList.remove("remove");
-        tmrOptions.classList.add("show");
+        this.tmrAlarmOffBtn.classList.remove("show");
+        this.tmrAlarmOffBtn.classList.add("remove");
+        this.tmrOptions.classList.remove("remove");
+        this.tmrOptions.classList.add("show");
 
         //show tmr add/sub
         this.tmrAddOptions.classList.remove("hide");
@@ -187,6 +187,6 @@ class Timer{
     }
 }
 
-let test = new Timer(document.querySelector('.timer'));
+let test = new Timer(document.getElementsByClassName('timer')[0]);
 
 
